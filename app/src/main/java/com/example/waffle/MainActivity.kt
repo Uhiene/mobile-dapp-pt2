@@ -42,6 +42,7 @@ class MainActivity : ComponentActivity() {
                             identityName = application.getString(R.string.app_name),
                             activityResultSender = activityResultSender,
                             modifier = Modifier.align(Alignment.End)
+                            WaffleCard(modifier = Modifier.fillMaxSize())
                         )
                         WaffleCard(
                             identityUri = Uri.parse(application.getString((R.string.id_url))),
