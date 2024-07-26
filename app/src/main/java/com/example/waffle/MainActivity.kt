@@ -21,41 +21,24 @@ import com.solana.mobilewalletadapter.clientlib.ActivityResultSender
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val activityResultSender = ActivityResultSender(this)
-
-        setContent {
-            WaffleTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize()
-                ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp),
-                    ) {
-                        WalletConnectButton(
-                            identityUri = Uri.parse(application.getString((R.string.id_url))),
-                            iconUri = Uri.parse(application.getString(R.string.id_favicon)),
-                            identityName = application.getString(R.string.app_name),
-                            activityResultSender = activityResultSender,
-                            modifier = Modifier.align(Alignment.End)
-                            WaffleCard(modifier = Modifier.fillMaxSize())
-                        )
-                        WaffleCard(
-                            identityUri = Uri.parse(application.getString((R.string.id_url))),
-                            iconUri = Uri.parse(application.getString(R.string.id_favicon)),
-                            identityName = application.getString(R.string.app_name),
-                            intentSender = activityResultSender,
-                            modifier = Modifier.fillMaxSize(),
-                        )
+   override fun onCreate(savedInstanceState: Bundle?) {
+       super.onCreate(savedInstanceState)
+      
+       setContent {
+           WaffleTheme {
+           
+                   modifier = Modifier.fillMaxSize()
+               ) {
+                   Column(
+                       modifier = Modifier.padding(16.dp),
+                   ) {
+                       ...
 
 
-                    }
-                }
-            }
-        }
-    }
+                       WaffleCard(modifier = Modifier.fillMaxSize())
+                   }
+               }
+           }
+       }
+   }
 }
